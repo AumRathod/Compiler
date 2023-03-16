@@ -26,11 +26,12 @@ Expression1: errorPrint
 
 errorPrint: STRING NEWLINE 
         {
-            printf("not recognized command.Use '--help' for getting help\n\n");
+            printf("Amanya aadesh.Madad mate '--madad' vapro.\n\n");
         } COMMAND;
 
 exit: EXIT NEWLINE 
         {
+            printf("Pacha avjo.");
             exit(0);
         };
 
@@ -44,32 +45,36 @@ printNumber: PRINT WHITESPACE E NEWLINE
                                             printf("%d\n", $3); 
                                         } COMMAND;
 
-ifCondition: IF WHITESPACE OBRACE CONDITION CBRACE WHITESPACE THEN WHITESPACE Expression1{
+ifCondition: IF OBRACE CONDITION CBRACE WHITESPACE THEN WHITESPACE Expression1 NEWLINE{
     if($3)
     {
-        printf("%d\n",$7); 
+        printf("%d\n",$8); 
+    }
+    else
+    {
+        printf("Sachu to nakh.\n");
     }
 } COMMAND;
 
 ifElseCondition: IF OBRACE CONDITION CBRACE WHITESPACE THEN WHITESPACE Expression1 WHITESPACE ELSE WHITESPACE Expression1 NEWLINE {
     if($3)
     {
-        printf("After Evaluating TRUE CONDITION : %d\n",$9); 
+        printf("Sachi sarat ganya baad : %d\n",$8); 
     } 
     else 
     {
-        printf("After Evaluating FALSE CONDITION : %d\n",$13);
+        printf("Khoti sarat ganya baad : %d\n",$12);
     }
 } COMMAND;
 
 help: HELP NEWLINE
                 { 
-                    printf("print\t\t:\tprint string | print expression\n");
+                    printf("chhapva mate\t:\tchhapi mar string | chhapi mar expression\n");
                     printf("expression\t:\tnum+num || num-num || num*num || num/num || num%cnum || num&num || num|num || num^num || (Expression)\n",'%');
-                    printf("if\t\t:\tif (condition) then expression\n"); 
-                    printf("if-else\t\t:\tif (condition) then expression else expression\n");
-                    printf("help\t\t:\t--help\n");
-                    printf("exit\t\t:\texit\n");
+                    printf("jo\t\t:\tjo(condition) to expression\n"); 
+                    printf("jo-to-baki\t:\tjo(condition) to expression baki expression\n");
+                    printf("madad\t\t:\t--madad\n");
+                    printf("bandh krva mate\t:\tEND\n");
                 } COMMAND;
 
 E:E ADD E {$$=$1+$3;}
@@ -97,7 +102,7 @@ CONDITION:E GT E {$$ = $1>$3;}
 
 void main()
 {
-    printf("\nWelcome to the compiler\n\nSTART\n");
+    printf("\nCompiler ma tamaru SWAGAT che.\n\nSTART\n");
     yyparse();
     getch();
 }
