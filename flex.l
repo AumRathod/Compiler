@@ -25,6 +25,8 @@ MUL	"*"
 DIV	"/"
 MOD	"%"
 AND	"&"
+ANDAND	"ane"
+OROR	"kato"
 OR	"|"
 EXOR "^"
 OBRACE "("
@@ -66,6 +68,14 @@ STRING [A-Za-z0-9]*
 
 {OR} {
 	return OR;
+}
+
+{ANDAND} {
+	return ANDAND;
+}
+
+{OROR} {
+	return OROR;
 }
 
 {EXOR} {
