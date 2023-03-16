@@ -1,0 +1,7 @@
+chhapi mar 10
+jo(25>12) to 25+1 baki 12
+jo(25<12) to 25+1 baki 12%5
+jo(23>24) to 234
+jo(23<=24) to 234
+jo(2>1 ane 5>4) to 23
+jo(2>1 kato 5<4) to 23
